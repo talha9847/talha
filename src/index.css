@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #14181F;
+  --color-panel: #1B212B;
+  --color-panel-2: #212836;
+  --color-line: #2C3543;
+  --color-ivory: #EDEBE4;
+  --color-muted: #93A0AF;
+  --color-brass: #C99A3D;
+  --color-brass-soft: #E7C173;
+  --color-teal: #4FA8A0;
+  --color-ok: #5FBF8B;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-brass);
+  color: #1B1508;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+.animate-draw {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: draw 1.8s ease forwards 0.3s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up 0.7s ease forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up { animation: none; }
+}
